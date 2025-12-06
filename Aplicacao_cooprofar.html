@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cooprofar – App Mockup</title>
+  <style>
+    :root {
+      --bg-main: #e6f1ff;
+      --bg-phone: #f9fafb;
+      --accent: #0ea5e9;
+      --accent-soft: #e0f2fe;
+      --accent-strong: #0369a1;
+      --success: #16a34a;
+      --warning: #f59e0b;
+      --danger:  #ef4444;
+      --text-main: #0f172a;
+      --text-soft: #64748b;
+      --card-bg: #ffffff;
+      --card-radius: 18px;
+      --shadow-soft: 0 6px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #dbeafe 0, #e6f1ff 40%, #e0f2fe 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      color: var(--text-main);
+    }
+
+    .phone-frame {
+      width: 390px;
+      max-width: 100%;
+      background: var(--bg-phone);
+      border-radius: 32px;
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.25);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    /* TOP BAR */
+
+    .top-bar {
+      height: 72px;
+      background: linear-gradient(90deg, #0ea5e9, #22c55e);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .top-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hamburger {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.18);
+      backdrop-filter: blur(6px);
+    }
+
+    .hamburger-lines {
+      width: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hamburger-lines span {
+      display: block;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 999px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      cursor: pointer;
+    }
+
+    .logo-small {
+      font-size: 11px;
+      color: #e0f2fe;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-big {
+      font-size: 19px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .cart-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      background: rgba(15, 23, 42, 0.18);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
+      backdrop-filter: blur(6px);
+      font-size: 18px;
+    }
+
+    .cart-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 3px 10px rgba(15, 23, 42, 0.3);
+    }
+
+    /* CONTENT WRAPPER */
+
+    .content-wrapper {
+      padding: 16px 16px 18px;
+      background: radial-gradient(circle at top left, #eff6ff, #f9fafb 45%);
+    }
+
+    .header-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .header-meta span strong {
+      color: var(--accent-strong);
+    }
+
+    .pill-status {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: var(--success);
+      font-weight: 500;
+      font-size: 11px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--success);
+    }
+
+    /* BASIC CARDS / GRID */
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      padding: 10px 12px;
+      box-shadow: var(--shadow-soft);
+      font-size: 11px;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+    }
+
+    .card h3 {
+      font-size: 12px;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .card-sub {
+      font-size: 10px;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .highlight-number {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--success);
+      margin: 4px 0 2px;
+    }
+
+    .button-link {
+      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: none;
+      font-size: 10px;
+      color: var(--accent-strong);
+      background: var(--accent-soft);
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .button-link span {
+      font-size: 12px;
+    }
+
+    .list {
+      list-style: none;
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .metric-big {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent-strong);
+      margin-top: 4px;
+    }
+
+    .pill-muted {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      color: #4b5563;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+
+    .big-button {
+      background: linear-gradient(90deg, #e0f2fe, #dcfce7);
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-strong);
+      padding: 11px;
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .big-button span {
+      font-size: 18px;
+    }
+
+    .views {
+      width: 100%;
+      min-height: 430px;
+    }
+
+    .view {
+      display: none;
+      animation: fadeIn 0.18s ease-out;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    .view-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .view-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .view-subtitle {
+      font-size: 11px;
+      color: var(--text-soft);
+    }
+
+    .stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .two-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    /* DASHBOARD */
+
+    #view-dashboard .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    #view-dashboard .menu-info {
+      grid-column: span 2;
+      background: #fefce8;
+      border-radius: var(--card-radius);
+      padding: 10px 12px;
+      font-size: 11px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(234, 179, 8, 0.2);
+      color: #854d0e;
+      margin-top: 4px;
+    }
+
+    #view-dashboard .menu-info strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    .card-chart { text-align: center; }
+
+    .pie-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .pie-chart-circle {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: conic-gradient(#16a34a 0 55%, #0ea5e9 55% 85%, #f59e0b 85% 100%);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+      position: relative;
+    }
+
+    .pie-chart-circle::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 50%;
+      background: var(--card-bg);
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      font-size: 9px;
+      flex-wrap: wrap;
+      color: var(--text-soft);
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .ld-entregue  { background: #16a34a; }
+    .ld-emcurso   { background: #0ea5e9; }
+    .ld-devolvido { background: #f59e0b; }
+
+    /* MAPA / TRACKING */
+
+    .tracking-map {
+      background:
+        linear-gradient(135deg, rgba(148, 163, 184, 0.1) 25%, transparent 25%) -8px 0/16px 16px,
+        linear-gradient(225deg, rgba(148, 163, 184, 0.08) 25%, transparent 25%) -8px 0/16px 16px,
+        linear-gradient(315deg, rgba(148, 163, 184, 0.08) 25%, transparent 25%) 0px 0/16px 16px,
+        linear-gradient(45deg, rgba(148, 163, 184, 0.1) 25%, #e0f2fe 25%) 0px 0/16px 16px;
+      border-radius: 14px;
+      padding: 10px;
+      margin-bottom: 8px;
+      position: relative;
+      overflow: hidden;
+      height: 140px;
+    }
+
+    .map-route {
+      position: absolute;
+      inset: 20px 30px;
+      border-radius: 24px;
+      border: 2px dashed rgba(59, 130, 246, 0.5);
+      box-shadow: 0 0 0 4px rgba(191, 219, 254, 0.6);
+    }
+
+    .tracking-dot {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 10px rgba(56, 189, 248, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      transition: top 0.3s ease-out, left 0.3s ease-out;
+    }
+
+    .tracking-marker-start,
+    .tracking-marker-end {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 2px solid #94a3b8;
+    }
+
+    .tracking-marker-start { left: 32px; bottom: 24px; }
+    .tracking-marker-end   { right: 32px; top: 24px;  }
+
+    .tracking-meta {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 9px;
+      color: var(--text-soft);
+      text-shadow: 0 1px 3px rgba(255,255,255,0.9);
+    }
+
+    .progress-bar {
+      margin-top: 8px;
+      height: 6px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #0ea5e9, #22c55e);
+      transition: width 0.3s ease-out;
+    }
+
+    .tracking-status {
+      margin-top: 8px;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .tracking-status-main {
+      font-weight: 600;
+      color: var(--accent-strong);
+    }
+
+    .tracking-status-sub {
+      font-size: 10px;
+      color: var(--text-soft);
+    }
+
+    .tracking-badge {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #ecfdf5;
+      color: var(--success);
+      font-size: 10px;
+    }
+
+    .btn-secondary {
+      margin-top: 8px;
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: #ffffff;
+      padding: 6px 10px;
+      font-size: 11px;
+      cursor: pointer;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-soft);
+    }
+
+    .search-box { margin-top: 6px; }
+
+    .search-input {
+      width: 100%;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #cbd5f5;
+      font-size: 11px;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+    }
+
+    .suggestions {
+      margin-top: 6px;
+      border-radius: 12px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      max-height: 150px;
+      overflow-y: auto;
+      list-style: none;
+      padding: 4px 6px;
+      display: none;
+    }
+
+    .suggestions li {
+      padding: 4px 6px;
+      font-size: 11px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .suggestions li:hover { background: #e0f2fe; }
+
+    .textarea-simple {
+      width: 100%;
+      min-height: 70px;
+      border-radius: 12px;
+      border: 1px solid #d1d5db;
+      padding: 6px 8px;
+      font-size: 11px;
+      resize: vertical;
+      outline: none;
+    }
+
+    .textarea-simple:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
+    }
+
+    .file-input {
+      font-size: 10px;
+      margin-top: 2px;
+    }
+
+    .stars {
+      display: inline-flex;
+      gap: 4px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    .stars span {
+      color: #e5e7eb;
+      transition: transform 0.1s;
+    }
+
+    .stars span.active {
+      color: #facc15;
+      transform: scale(1.05);
+    }
+
+    .chat-thread {
+      border-radius: 12px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      padding: 6px 8px;
+      max-height: 130px;
+      overflow-y: auto;
+      margin-bottom: 6px;
+      font-size: 11px;
+    }
+
+    .chat-msg { margin-bottom: 4px; display: flex; }
+
+    .chat-msg.me { justify-content: flex-end; }
+
+    .chat-bubble {
+      max-width: 75%;
+      padding: 6px 8px;
+      border-radius: 12px;
+    }
+
+    .chat-bubble.me {
+      background: #0ea5e9;
+      color: #ffffff;
+      border-bottom-right-radius: 2px;
+    }
+
+    .chat-bubble.them {
+      background: #ffffff;
+      color: var(--text-main);
+      border-bottom-left-radius: 2px;
+      border: 1px solid #e5e7eb;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.35);
+      display: none;
+      z-index: 10;
+    }
+
+    .sidebar-overlay.open { display: block; }
+
+    .sidebar {
+      position: absolute;
+      top: 0;
+      left: -240px;
+      width: 220px;
+      height: 100%;
+      background: #0b1120;
+      color: #e5e7eb;
+      box-shadow: 8px 0 30px rgba(15, 23, 42, 0.5);
+      padding: 72px 18px 18px;
+      transition: left 0.25s ease-in-out;
+      z-index: 11;
+    }
+
+    .sidebar.open { left: 0; }
+
+    .sidebar-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 13px;
+    }
+
+    .sidebar li {
+      cursor: pointer;
+      padding: 7px 6px;
+      border-radius: 10px;
+      transition: background 0.15s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .sidebar li:hover {
+      background: rgba(148, 163, 184, 0.25);
+      transform: translateX(2px);
+    }
+
+    .sidebar li span.icon {
+      font-size: 15px;
+      width: 18px;
+      text-align: center;
+    }
+
+    /* ENCOMENDAS EM CURSO */
+
+    .order-block {
+      padding: 8px 0;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .order-block:first-of-type {
+      border-top: none;
+      padding-top: 4px;
+    }
+
+    .order-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+      font-size: 11px;
+    }
+
+    .order-id {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .order-status-pill {
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 500;
+    }
+
+    .order-prep {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+
+    .order-route {
+      background: #dcfce7;
+      color: #15803d;
+    }
+
+    .order-row-sub {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .order-progress {
+      margin-top: 4px;
+      height: 6px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+
+    .order-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #0ea5e9, #22c55e);
+    }
+
+    .order-progress-fill.order-progress-route {
+      background: linear-gradient(90deg, #22c55e, #0ea5e9);
+    }
+
+    .order-history {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+      font-size: 11px;
+    }
+
+    .order-history-block {
+      padding-top: 4px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .order-history-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .order-history-id {
+      font-weight: 600;
+    }
+
+    .order-history-status {
+      color: #64748b;
+    }
+
+    .order-history-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 10px;
+      color: #4b5563;
+    }
+
+    .order-history-notes {
+      margin-top: 3px;
+      font-size: 10px;
+      color: #6b7280;
+    }
+
+    /* ALERTAS DE RUTURAS – blocos + filtros interativos */
+
+    .alerts-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .alert-block {
+      border-radius: 14px;
+      padding: 10px 10px 8px;
+      border: 1px solid #e5e7eb;
+      background: #ffffff;
+    }
+
+    .alert-block h4 {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .alert-block small {
+      font-size: 10px;
+      color: #6b7280;
+    }
+
+    .alert-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 500;
+      margin-left: 6px;
+    }
+
+    .tag-danger { background:#fee2e2;color:#b91c1c; }
+    .tag-warn   { background:#ffedd5;color:#c2410c; }
+    .tag-low    { background:#fef9c3;color:#a16207; }
+
+    .alert-medicine {
+      margin-top: 6px;
+      padding-top: 4px;
+      border-top: 1px dashed #e5e7eb;
+      font-size: 11px;
+    }
+
+    .alert-medicine:first-of-type {
+      border-top: none;
+      padding-top: 2px;
+    }
+
+    .alert-med-name {
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .alert-med-list {
+      list-style: disc;
+      padding-left: 14px;
+      font-size: 10px;
+      color: #4b5563;
+    }
+
+    .alert-actions {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .alert-chip-btn {
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      font-size: 9px;
+      padding: 2px 8px;
+      cursor: pointer;
+    }
+
+    .filters-block {
+      border-radius: 14px;
+      padding: 10px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      font-size: 10px;
+      margin-bottom: 10px;
+    }
+
+    .filters-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .filter-pill {
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      padding: 3px 8px;
+      font-size: 9px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .filter-pill strong {
+      font-weight: 600;
+    }
+
+    .filter-pill select {
+      border: none;
+      background: transparent;
+      font-size: 9px;
+      outline: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 420px) {
+      body { padding: 12px; }
+      .phone-frame { width: 100%; border-radius: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="phone-frame">
+    <!-- overlay + sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-title">Navegação</div>
+      <ul>
+        <li data-view="orders"><span class="icon">📦</span> Minhas Encomendas</li>
+        <li data-view="tracking"><span class="icon">🚚</span> Rastrear Encomenda</li>
+        <li data-view="order-new"><span class="icon">🛒</span> Fazer Pedido</li>
+        <li data-view="returns"><span class="icon">↩️</span> Devoluções</li>
+        <li data-view="claims"><span class="icon">⚠️</span> Reclamações</li>
+        <li data-view="campaigns"><span class="icon">🎯</span> Campanhas e Promoções</li>
+        <li data-view="stock-alerts"><span class="icon">🚨</span> Alertas de Ruturas</li>
+        <li data-view="training"><span class="icon">🎓</span> Formações</li>
+        <li data-view="feedback"><span class="icon">⭐</span> Feedback da Entrega</li>
+        <li data-view="contact"><span class="icon">💬</span> Falar com Representante</li>
+      </ul>
+    </nav>
+
+    <!-- top bar -->
+    <header class="top-bar">
+      <div class="top-left">
+        <div class="hamburger" id="hamburgerBtn">
+          <div class="hamburger-lines">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+        <div class="logo" id="logoHome">
+          <span class="logo-small">Grupo</span>
+          <span class="logo-big">Cooprofar</span>
+        </div>
+      </div>
+      <button class="cart-btn" type="button" title="Carrinho de compras">🛒</button>
+    </header>
+
+    <!-- content -->
+    <div class="content-wrapper">
+      <div class="header-meta">
+        <span id="viewLabel">Dashboard <strong>operacional</strong></span>
+        <span class="pill-status"><span class="pill-dot"></span> Operação estável</span>
+      </div>
+
+      <div class="views">
+        <!-- DASHBOARD -->
+        <section id="view-dashboard" class="view active">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Dashboard operacional</div>
+              <div class="view-subtitle">Visão rápida das encomendas da farmácia.</div>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <section class="card">
+              <h3>Resumo semanal</h3>
+              <p class="card-sub">Visão rápida das encomendas da farmácia.</p>
+              <div class="highlight-number">12</div>
+              <div class="view-subtitle">Encomendas este mês</div>
+              <button class="button-link">
+                <span>🚚</span> 3 encomendas a caminho
+              </button>
+            </section>
+
+            <section class="card card-chart">
+              <h3>Estado das encomendas</h3>
+              <div class="pie-wrapper">
+                <div class="pie-chart-circle"></div>
+                <div class="legend">
+                  <span><span class="legend-dot ld-entregue"></span> Entregue</span>
+                  <span><span class="legend-dot ld-emcurso"></span> Em curso</span>
+                  <span><span class="legend-dot ld-devolvido"></span> Devolvido</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="card">
+              <h3>Rastreio rápido</h3>
+              <ul class="list">
+                <li>#6475 – A caminho</li>
+                <li>#8652 – Entregue</li>
+                <li>#9023 – Em picking</li>
+              </ul>
+            </section>
+
+            <section class="card">
+              <h3>Devoluções pendentes</h3>
+              <div class="highlight-number" style="color:#f97316;">2</div>
+              <p class="card-sub">Consulte o estado e faça upload de documentação.</p>
+            </section>
+
+            <section class="card">
+              <h3>Motivos de devolução</h3>
+              <ul class="list">
+                <li>Validade curta</li>
+                <li>Produto danificado</li>
+                <li>Erro de picking</li>
+              </ul>
+            </section>
+
+            <section class="card">
+              <h3>Tempo médio de espera</h3>
+              <div class="metric-big">00h30</div>
+              <div class="pill-muted">Última entrega</div>
+            </section>
+
+            <section class="card" style="grid-column: span 2;">
+              <h3>Medicamentos que já foram pedidos</h3>
+              <ul class="list">
+                <li>Paracetamol 1g – 3 cx</li>
+                <li>Ibuprofeno 600mg – 5 cx</li>
+                <li>Atorvastatina 20mg – 2 cx</li>
+              </ul>
+            </section>
+
+            <section style="grid-column: span 2;">
+              <div class="big-button">
+                <span>💬</span>
+                <div>Fale com um representante da Cooprofar</div>
+              </div>
+            </section>
+
+            <section class="menu-info">
+              <strong>Dica:</strong>
+              Use o menu lateral para navegar entre <em>Minhas Encomendas</em>, <em>Rastrear</em>, <em>Fazer Pedido</em> e restantes áreas B2B.
+            </section>
+          </div>
+        </section>
+
+        <!-- MINHAS ENCOMENDAS -->
+        <section id="view-orders" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Minhas Encomendas</div>
+              <div class="view-subtitle">Histórico e estado das encomendas da farmácia.</div>
+            </div>
+            <div class="pill-muted" style="font-size:10px;">
+              Hoje: <strong>3 em curso</strong>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Encomendas em curso</h3>
+
+            <div class="order-block">
+              <div class="order-header-row">
+                <div class="order-id">#10234</div>
+                <span class="order-status-pill order-prep">Em preparação</span>
+              </div>
+              <div class="order-row-sub">
+                Estimativa 12:10 · 10 min restantes
+              </div>
+              <div class="order-progress">
+                <div class="order-progress-fill" style="width:97%;"></div>
+              </div>
+              <div class="order-row-sub">
+                Preparação 97% · Verifica produtos sensíveis e quotas INFARMED.
+              </div>
+            </div>
+
+            <div class="order-block">
+              <div class="order-header-row">
+                <div class="order-id">#10231</div>
+                <span class="order-status-pill order-route">Em rota</span>
+              </div>
+              <div class="order-row-sub">
+                Saída às 11:45 · previsão 12:15
+              </div>
+              <div class="order-progress">
+                <div class="order-progress-fill order-progress-route" style="width:60%;"></div>
+              </div>
+              <div class="order-row-sub">
+                Entrega em curso · Monitorizar impacto em produtos termolábeis.
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:10px;">
+            <h3>Últimas encomendas</h3>
+            <div class="order-history">
+              <div class="order-history-block">
+                <div class="order-history-header">
+                  <div class="order-history-id">#10221</div>
+                  <div class="order-history-status">Entregue · 03/12 – 09h40</div>
+                </div>
+                <div class="order-history-lines">
+                  <span>Valor fatura: <strong>6.815,23 €</strong></span>
+                  <span>Nota de crédito: <strong>345 €</strong></span>
+                </div>
+                <div class="order-history-notes">
+                  Volume danificado registado e devolução em curso.
+                </div>
+              </div>
+
+              <div class="order-history-block">
+                <div class="order-history-header">
+                  <div class="order-history-id">#10210</div>
+                  <div class="order-history-status">Entregue · 02/12 – 18h10</div>
+                </div>
+                <div class="order-history-lines">
+                  <span>Valor fatura: <strong>4.055,80 €</strong></span>
+                  <span>Ruturas: <strong>20 artigos</strong> · 2 devoluções associadas</span>
+                </div>
+                <div class="order-history-notes">
+                  Acesso direto ao extrato, conferência e incidências para justificar ajustes de inventário.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- RASTREAR ENCOMENDA -->
+        <section id="view-tracking" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Rastrear Encomenda</div>
+              <div class="view-subtitle">Localização em tempo quase real do distribuidor.</div>
+            </div>
+            <span class="pill-muted" style="font-size:10px;">Encomenda #10234</span>
+          </div>
+
+          <div class="card">
+            <div class="tracking-map">
+              <div class="map-route"></div>
+              <div class="tracking-marker-start"></div>
+              <div class="tracking-marker-end"></div>
+              <div class="tracking-dot" id="driverDot" style="left:40px;top:90px;">🚚</div>
+              <div class="tracking-meta">
+                <span>Armazém Cooprofar</span>
+                <span>Farmácia Central</span>
+              </div>
+            </div>
+
+            <div class="progress-bar">
+              <div class="progress-fill" id="trackingProgress" style="width:40%;"></div>
+            </div>
+
+            <div class="tracking-status">
+              <div>
+                <div class="tracking-status-main" id="trackingMain">Próximo da farmácia</div>
+                <div class="tracking-status-sub" id="trackingSub">Entregue em menos de 5 min</div>
+              </div>
+              <div class="tracking-badge" id="trackingBadge">Armazém</div>
+            </div>
+
+            <div style="margin-top:10px;font-size:10px;color:#6b7280;">
+              Atualizar Localização
+              <input id="trackingSlider" type="range" min="0" max="100" value="40" style="width:100%;margin-top:4px;">
+            </div>
+          </div>
+
+          <div class="two-cols" style="margin-top:10px;">
+            <div class="card">
+              <h3>Detalhes da entrega</h3>
+              <ul class="list">
+                <li>Motorista: João Silva</li>
+                <li>Matrícula: 12-AB-34</li>
+                <li>Janela: 10h00–11h00</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Contactos rápidos</h3>
+              <ul class="list">
+                <li>📞 Contactar Entregador</li>
+                <li>💬 Chat com o Entregador</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- FAZER PEDIDO -->
+        <section id="view-order-new" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Fazer Pedido</div>
+              <div class="view-subtitle">Reposição rápida de stock e encomenda inteligente.</div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <h3>Encomendas normais</h3>
+              <p class="card-sub">Pesquisa e construção do pedido diário (nome, DC, laboratório).</p>
+              <div class="search-box">
+                <input id="searchNormal" class="search-input"
+                       type="text" placeholder="Escreva o nome do medicamento..." />
+                <ul id="suggestNormal" class="suggestions"></ul>
+              </div>
+              <button class="button-link" style="margin-top:8px;">
+                <span>🔍</span> Pesquisar medicamento
+              </button>
+            </div>
+
+            <div class="card">
+              <h3>Encomendas express</h3>
+              <p class="card-sub">Pedidos urgentes com prioridade máxima na próxima rota.</p>
+              <div class="search-box">
+                <input id="searchExpress" class="search-input"
+                       type="text" placeholder="Medicamento urgente..." />
+                <ul id="suggestExpress" class="suggestions"></ul>
+              </div>
+              <button class="button-link" style="margin-top:8px;">
+                <span>⚡</span> Adicionar medicamento urgente
+              </button>
+            </div>
+
+            <div class="card">
+              <h3>Sugestões de reposição</h3>
+              <p class="card-sub">Baseado em históricos de venda e sazonalidade.</p>
+              <button class="button-link" id="btnAutoRec">
+                <span>✨</span> Ver recomendações automáticas
+              </button>
+              <ul class="list" id="autoRecList" style="display:none;margin-top:8px;"></ul>
+            </div>
+          </div>
+
+          <button class="button-link" style="margin-top:10px;width:100%;justify-content:center;background:linear-gradient(90deg,#0ea5e9,#22c55e);color:#fff;font-size:13px;font-weight:600;box-shadow:0 10px 25px rgba(34,197,94,0.35);">
+            Efetuar pedido
+          </button>
+        </section>
+
+        <!-- DEVOLUÇÕES -->
+        <section id="view-returns" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Devoluções</div>
+              <div class="view-subtitle">Gestão simples de devoluções e respetiva documentação.</div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <h3>Devoluções pendentes</h3>
+              <ul class="list">
+                <li>#D-221 · Validade curta · Em análise</li>
+                <li>#D-219 · Produto danificado · A aguardar recolha</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Iniciar nova devolução</h3>
+              <p class="card-sub">Escolha o motivo, anexe fotos e agende recolha.</p>
+              <textarea class="textarea-simple" placeholder="Descreva o motivo da devolução..."></textarea>
+              <div class="file-input">
+                Anexar fotografia da embalagem:
+                <input type="file" />
+              </div>
+              <button class="button-link" style="margin-top:6px;">
+                <span>➕</span> Criar pedido de devolução
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- RECLAMAÇÕES -->
+        <section id="view-claims" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Reclamações</div>
+              <div class="view-subtitle">Canal estruturado para reportar problemas.</div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <h3>Registos recentes</h3>
+              <ul class="list">
+                <li>#R-120 · Atraso na entrega · Resolvido</li>
+                <li>#R-119 · Divergência de produto · Em tratamento</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Nova reclamação</h3>
+              <p class="card-sub">Selecione o tipo de ocorrência e descreva o caso.</p>
+              <textarea class="textarea-simple" placeholder="Descreva a situação ocorrida..."></textarea>
+              <button class="button-link" style="margin-top:6px;">
+                <span>✉️</span> Registar reclamação
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- CAMPANHAS -->
+        <section id="view-campaigns" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Campanhas e Promoções</div>
+              <div class="view-subtitle">Apoio comercial direcionado à farmácia.</div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <h3>Campanhas ativas</h3>
+              <ul class="list">
+                <li>Campanha Inverno · Vacinas e antigripais</li>
+                <li>Programa crónicos · Descontos em terapêutica contínua</li>
+              </ul>
+            </div>
+            <div class="card">
+              <h3>Próximas ações</h3>
+              <ul class="list">
+                <li>Material de ponto de venda · envio automático</li>
+                <li>Co-branding digital com a farmácia</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- ALERTAS DE RUTURAS – NOVA VERSÃO -->
+        <section id="view-stock-alerts" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Alertas de Ruturas</div>
+              <div class="view-subtitle">Visão priorizada dos produtos com risco de falta.</div>
+            </div>
+          </div>
+
+          <div class="filters-block">
+            <strong>🗂️ Filtros e organização</strong>
+            <div class="filters-row">
+              <label class="filter-pill">
+                <strong>Prioridade:</strong>
+                <select id="filterPrioridade">
+                  <option value="">Todas</option>
+                  <option value="critico">Crítico</option>
+                  <option value="atencao">Atenção</option>
+                  <option value="baixo">Baixo</option>
+                </select>
+              </label>
+              <label class="filter-pill">
+                <strong>Dias stock:</strong>
+                <select id="filterDias">
+                  <option value="">Todos</option>
+                  <option value="<2">&lt; 2 dias</option>
+                  <option value="2">2 dias</option>
+                  <option value="3-5">3–5 dias</option>
+                </select>
+              </label>
+              <label class="filter-pill">
+                <strong>Tendência:</strong>
+                <select id="filterTendencia">
+                  <option value="">Todas</option>
+                  <option value="descer">A descer</option>
+                  <option value="estavel">Estável</option>
+                </select>
+              </label>
+              <label class="filter-pill">
+                <strong>Ordenar:</strong>
+                <select id="filterOrdenar">
+                  <option value="prioridade">Por prioridade</option>
+                  <option value="nome">Por nome</option>
+                </select>
+              </label>
+            </div>
+            <div style="margin-top:6px;">
+              Use os filtros para priorizar rapidamente os produtos com maior risco de rutura.
+            </div>
+          </div>
+
+          <div class="alerts-wrapper" id="alertsWrapper">
+            <!-- Críticos -->
+            <div class="alert-block" data-group="critico">
+              <h4>🔥 Críticos — Ruptura iminente
+                <span class="alert-tag tag-danger">Stock &lt; 24h</span>
+              </h4>
+              <small>Produtos com stock inferior a 24 horas ou risco muito elevado.</small>
+
+              <div class="alert-medicine"
+                   data-prioridade="critico"
+                   data-dias="<2"
+                   data-tendencia="descer">
+                <div class="alert-med-name">Losartan 50mg</div>
+                <ul class="alert-med-list">
+                  <li>Stock: &lt; 24h</li>
+                  <li>Prioridade: Máxima</li>
+                  <li>Tendência: 🔽 a descer rapidamente</li>
+                </ul>
+                <div class="alert-actions">
+                  <button class="alert-chip-btn">Reforçar stock</button>
+                  <button class="alert-chip-btn">Ver alternativas</button>
+                  <button class="alert-chip-btn">Histórico</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Atenção -->
+            <div class="alert-block" data-group="atencao">
+              <h4>⚠️ Atenção — Ruptura em 1–2 dias
+                <span class="alert-tag tag-warn">1–2 dias</span>
+              </h4>
+
+              <div class="alert-medicine"
+                   data-prioridade="atencao"
+                   data-dias="2"
+                   data-tendencia="descer">
+                <div class="alert-med-name">Ibuprofeno 600mg</div>
+                <ul class="alert-med-list">
+                  <li>Stock: 2 dias</li>
+                  <li>Tendência: 🔽 a descer</li>
+                </ul>
+                <div class="alert-actions">
+                  <button class="alert-chip-btn">Reforçar stock</button>
+                </div>
+              </div>
+
+              <div class="alert-medicine"
+                   data-prioridade="atencao"
+                   data-dias="2"
+                   data-tendencia="estavel">
+                <div class="alert-med-name">Metformina 850mg</div>
+                <ul class="alert-med-list">
+                  <li>Stock: 2 dias</li>
+                  <li>Tendência: ➡️ estável</li>
+                </ul>
+                <div class="alert-actions">
+                  <button class="alert-chip-btn">Reforçar stock</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Baixo -->
+            <div class="alert-block" data-group="baixo">
+              <h4>⏳ Baixo — Ruptura em 3–5 dias
+                <span class="alert-tag tag-low">3–5 dias</span>
+              </h4>
+
+              <div class="alert-medicine"
+                   data-prioridade="baixo"
+                   data-dias="3-5"
+                   data-tendencia="estavel">
+                <div class="alert-med-name">Paracetamol 1g</div>
+                <ul class="alert-med-list">
+                  <li>Stock: 3–5 dias</li>
+                  <li>Tendência: ➡️ estável</li>
+                </ul>
+                <div class="alert-actions">
+                  <button class="alert-chip-btn">Reforçar</button>
+                  <button class="alert-chip-btn">Histórico</button>
+                </div>
+              </div>
+
+              <div class="alert-medicine"
+                   data-prioridade="baixo"
+                   data-dias="3-5"
+                   data-tendencia="descer">
+                <div class="alert-med-name">Amoxicilina 500mg</div>
+                <ul class="alert-med-list">
+                  <li>Stock: 3–5 dias</li>
+                  <li>Tendência: 🔽 ligeira descida</li>
+                </ul>
+                <div class="alert-actions">
+                  <button class="alert-chip-btn">Reforçar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FORMAÇÕES -->
+        <section id="view-training" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Formações</div>
+              <div class="view-subtitle">Conteúdos para equipas de farmácia.</div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <h3>Próximas sessões</h3>
+              <ul class="list">
+                <li>Gestão de stock e ruturas · 12/12</li>
+                <li>Boas práticas de cadeia de frio · 19/12</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- FEEDBACK ENTREGA -->
+        <section id="view-feedback" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Feedback da Entrega</div>
+              <div class="view-subtitle">Avalie a experiência logística.</div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <h3>Avaliar entrega #10221</h3>
+              <p class="card-sub">Tempo, simpatia e condição dos produtos.</p>
+              <div class="stars" id="starRating">
+                <span data-star="1">★</span>
+                <span data-star="2">★</span>
+                <span data-star="3">★</span>
+                <span data-star="4">★</span>
+                <span data-star="5">★</span>
+              </div>
+              <textarea class="textarea-simple" placeholder="Deixe aqui o seu comentário sobre a entrega..."></textarea>
+              <button class="button-link" style="margin-top:6px;">
+                <span>📤</span> Submeter feedback
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACTO REPRESENTANTE -->
+        <section id="view-contact" class="view">
+          <div class="view-header">
+            <div>
+              <div class="view-title">Falar com Representante</div>
+              <div class="view-subtitle">Canal direto com a equipa Cooprofar.</div>
+            </div>
+          </div>
+
+          <div class="stack">
+            <div class="card">
+              <h3>Contactos</h3>
+              <ul class="list">
+                <li>Gestor comercial: Ana Costa</li>
+                <li>Telefone direto: 91 234 56 78</li>
+                <li>Email: ana.costa@cooprofar.pt</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <h3>Mensagem rápida</h3>
+              <p class="card-sub">Na app real, aqui estaria o chat em tempo real.</p>
+              <div class="chat-thread" id="chatThread">
+                <div class="chat-msg">
+                  <div class="chat-bubble them">
+                    Bom dia! Em que podemos ajudar hoje?
+                  </div>
+                </div>
+              </div>
+              <textarea id="chatInput" class="textarea-simple" placeholder="Escreva a sua mensagem..."></textarea>
+              <button id="chatSend" class="button-link" style="margin-top:6px;">
+                <span>📨</span> Enviar mensagem
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Sidebar / navegação ---
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("sidebarOverlay");
+    const viewLabel = document.getElementById("viewLabel");
+    const logoHome = document.getElementById("logoHome");
+
+    function toggleSidebar() {
+      sidebar.classList.toggle("open");
+      overlay.classList.toggle("open");
+    }
+
+    hamburgerBtn.addEventListener("click", toggleSidebar);
+    overlay.addEventListener("click", toggleSidebar);
+
+    function showView(id, labelText) {
+      document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
+      const v = document.getElementById(id);
+      if (v) v.classList.add("active");
+      viewLabel.innerHTML = labelText;
+    }
+
+    logoHome.addEventListener("click", () => {
+      showView("view-dashboard", 'Dashboard <strong>operacional</strong>');
+    });
+
+    document.querySelectorAll(".sidebar li").forEach(li => {
+      li.addEventListener("click", () => {
+        const view = li.getAttribute("data-view");
+        toggleSidebar();
+
+        const labels = {
+          "orders": "Minhas <strong>encomendas</strong>",
+          "tracking": "Rastreio <strong>em tempo real</strong>",
+          "order-new": "Novo <strong>pedido</strong>",
+          "returns": "Gestão de <strong>devoluções</strong>",
+          "claims": "<strong>Reclamações</strong>",
+          "campaigns": "Campanhas e <strong>promoções</strong>",
+          "stock-alerts": "Alertas de <strong>ruturas</strong>",
+          "training": "<strong>Formações</strong>",
+          "feedback": "Feedback da <strong>entrega</strong>",
+          "contact": "Contacto com <strong>representante</strong>"
+        };
+
+        showView("view-" + view, labels[view] || "");
+      });
+    });
+
+    // --- Tracking map slider ---
+    const trackingSlider = document.getElementById("trackingSlider");
+    const driverDot = document.getElementById("driverDot");
+    const trackingProgress = document.getElementById("trackingProgress");
+    const trackingMain = document.getElementById("trackingMain");
+    const trackingSub = document.getElementById("trackingSub");
+    const trackingBadge = document.getElementById("trackingBadge");
+
+    if (trackingSlider) {
+      trackingSlider.addEventListener("input", () => {
+        const v = Number(trackingSlider.value); // 0–100
+        trackingProgress.style.width = v + "%";
+
+        const left = 40 + (v / 100) * 210;
+        const top  = 90  - (v / 100) * 60;
+        driverDot.style.left = left + "px";
+        driverDot.style.top  = top  + "px";
+
+        if (v < 30) {
+          trackingMain.textContent = "A preparar encomenda";
+          trackingSub.textContent  = "Tempo estimado: 45 min";
+          trackingBadge.textContent = "Armazém";
+        } else if (v < 70) {
+          trackingMain.textContent = "Em rota para a farmácia";
+          trackingSub.textContent  = "Previsto chegar em cerca de 20 min";
+          trackingBadge.textContent = "Em rota";
+        } else {
+          trackingMain.textContent = "Próximo da farmácia";
+          trackingSub.textContent  = "Entregue em menos de 5 min";
+          trackingBadge.textContent = "Quase a chegar";
+        }
+      });
+    }
+
+    // --- Lista de medicamentos (pesquisas Fazer Pedido) ---
+    const medicamentos = [
+      "Paracetamol 1g",
+      "Ibuprofeno 600mg",
+      "Amoxicilina 500mg",
+      "Metformina 850mg",
+      "Atorvastatina 20mg",
+      "Omeprazol 20mg",
+      "Losartan 50mg",
+      "Enalapril 20mg",
+      "Sinvastatina 20mg",
+      "Levotiroxina 100mcg",
+      "Loratadina 10mg",
+      "Cetirizina 10mg",
+      "Diclofenac 50mg",
+      "Naproxeno 550mg",
+      "Ácido acetilsalicílico 100mg",
+      "Furosemida 40mg",
+      "Clopidogrel 75mg",
+      "Amlodipina 5mg",
+      "Escitalopram 10mg",
+      "Sertralina 50mg",
+      "Diazepam 5mg",
+      "Pantoprazol 40mg",
+      "Domperidona 10mg",
+      "Salbutamol inalador",
+      "Insulina glargina",
+      "Cetoconazol creme",
+      "Betametasona pomada",
+      "Azitromicina 500mg",
+      "Rosuvastatina 10mg",
+      "Vitamina D3 1000UI"
+    ];
+
+    function attachSearch(inputId, listId) {
+      const input = document.getElementById(inputId);
+      const list = document.getElementById(listId);
+      if (!input || !list) return;
+
+      input.addEventListener("input", () => {
+        const term = input.value.toLowerCase().trim();
+        list.innerHTML = "";
+        if (!term) {
+          list.style.display = "none";
+          return;
+        }
+        const results = medicamentos
+          .filter(m => m.toLowerCase().includes(term))
+          .slice(0, 10);
+
+        results.forEach(m => {
+          const li = document.createElement("li");
+          li.textContent = m;
+          li.addEventListener("click", () => {
+            input.value = m;
+            list.style.display = "none";
+          });
+          list.appendChild(li);
+        });
+        list.style.display = results.length ? "block" : "none";
+      });
+
+      input.addEventListener("blur", () => {
+        setTimeout(() => { list.style.display = "none"; }, 200);
+      });
+    }
+
+    attachSearch("searchNormal", "suggestNormal");
+    attachSearch("searchExpress", "suggestExpress");
+
+    // --- Recomendações automáticas ---
+    const btnAutoRec  = document.getElementById("btnAutoRec");
+    const autoRecList = document.getElementById("autoRecList");
+
+    if (btnAutoRec && autoRecList) {
+      btnAutoRec.addEventListener("click", () => {
+        autoRecList.innerHTML = "";
+        const exemplos = [
+          "Paracetamol 1g · reposição diária",
+          "Ibuprofeno 600mg · pico de procura sazonal",
+          "Metformina 850mg · doentes crónicos",
+          "Omeprazol 20mg · terapêutica contínua",
+          "Losartan 50mg · reforço programado"
+        ];
+        exemplos.forEach(e => {
+          const li = document.createElement("li");
+          li.textContent = e;
+          autoRecList.appendChild(li);
+        });
+        autoRecList.style.display = "block";
+      });
+    }
+
+    // --- Estrelas de feedback ---
+    const starContainer = document.getElementById("starRating");
+    if (starContainer) {
+      starContainer.querySelectorAll("span").forEach(star => {
+        star.addEventListener("click", () => {
+          const value = Number(star.dataset.star);
+          starContainer.querySelectorAll("span").forEach(s => {
+            s.classList.toggle("active", Number(s.dataset.star) <= value);
+          });
+        });
+      });
+    }
+
+    // --- Chat simples ---
+    const chatThread = document.getElementById("chatThread");
+    const chatInput  = document.getElementById("chatInput");
+    const chatSend   = document.getElementById("chatSend");
+
+    if (chatThread && chatInput && chatSend) {
+      chatSend.addEventListener("click", () => {
+        const txt = chatInput.value.trim();
+        if (!txt) return;
+        const msg = document.createElement("div");
+        msg.className = "chat-msg me";
+        msg.innerHTML = '<div class="chat-bubble me"></div>';
+        msg.querySelector(".chat-bubble").textContent = txt;
+        chatThread.appendChild(msg);
+        chatThread.scrollTop = chatThread.scrollHeight;
+        chatInput.value = "";
+      });
+    }
+
+    // --- Filtros interativos de Alertas de Ruturas ---
+    const filterPrioridade = document.getElementById("filterPrioridade");
+    const filterDias       = document.getElementById("filterDias");
+    const filterTendencia  = document.getElementById("filterTendencia");
+    const filterOrdenar    = document.getElementById("filterOrdenar");
+
+    function aplicarFiltrosAlertas() {
+      const p = filterPrioridade ? filterPrioridade.value : "";
+      const d = filterDias ? filterDias.value : "";
+      const t = filterTendencia ? filterTendencia.value : "";
+
+      const meds = document.querySelectorAll("#view-stock-alerts .alert-medicine");
+
+      meds.forEach(med => {
+        const mp = med.dataset.prioridade;
+        const md = med.dataset.dias;
+        const mt = med.dataset.tendencia;
+
+        const mostra =
+          (!p || mp === p) &&
+          (!d || md === d) &&
+          (!t || mt === t);
+
+        med.style.display = mostra ? "" : "none";
+      });
+
+      document.querySelectorAll("#view-stock-alerts .alert-block").forEach(block => {
+        const algumVisivel = Array.from(block.querySelectorAll(".alert-medicine"))
+          .some(m => m.style.display !== "none");
+        block.style.display = algumVisivel ? "" : "none";
+      });
+
+      aplicarOrdenacaoAlertas();
+    }
+
+    function aplicarOrdenacaoAlertas() {
+      if (!filterOrdenar) return;
+      const criterio = filterOrdenar.value;
+
+      if (criterio === "nome") {
+        document.querySelectorAll("#view-stock-alerts .alert-block").forEach(block => {
+          const meds = Array.from(block.querySelectorAll(".alert-medicine"));
+          meds.sort((a, b) => {
+            const na = a.querySelector(".alert-med-name").textContent.trim();
+            const nb = b.querySelector(".alert-med-name").textContent.trim();
+            return na.localeCompare(nb);
+          });
+          meds.forEach(m => block.appendChild(m));
+        });
+      }
+      // se for "prioridade", mantemos a ordem original dos blocos
+    }
+
+    if (filterPrioridade && filterDias && filterTendencia && filterOrdenar) {
+      [filterPrioridade, filterDias, filterTendencia, filterOrdenar].forEach(el => {
+        el.addEventListener("change", aplicarFiltrosAlertas);
+      });
+      aplicarFiltrosAlertas();
+    }
+  </script>
+</body>
+</html>
